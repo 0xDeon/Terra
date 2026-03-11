@@ -1,0 +1,41 @@
+name: CI — terra-app/contracts
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - "terra-app/packages/contracts/**"
+      - ".github/workflows/ci-contracts.yml"
+  pull_request:
+    branches: [main, dev]
+    paths:
+      - "terra-app/packages/contracts/**"
+      - ".github/workflows/ci-contracts.yml"
+
+defaults:
+  run:
+    working-directory: terra-app/packages/contracts
+
+jobs:
+  check:
+    name: Clarinet Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Clarinet
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CLARINET_URL=$(gh api repos/hirosystems/clarinet/releases/latest --jq '.assets[] | select(.name | test("linux-x64-glibc")) | .browser_download_url')
+          echo "Downloading: $CLARINET_URL"
+          wget -q "$CLARINET_URL" -O clarinet.tar.gz
+          tar -xzf clarinet.tar.gz
+          sudo mv clarinet /usr/local/bin/
+          clarinet --version
+
+      - name: Check contracts
+        run: clarinet check
+

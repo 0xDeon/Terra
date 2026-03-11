@@ -6,7 +6,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "lint": "eslint src/"
+    "lint": "eslint --ext .ts src/"
   },
   "dependencies": {
     "fastify": "^4.26.0",
@@ -15,6 +15,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
     "typescript": "^5.4.0",
     "tsx": "^4.7.0"
   }
