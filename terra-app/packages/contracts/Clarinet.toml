@@ -1,0 +1,23 @@
+[project]
+name = "terra-contracts"
+description = "Clarity smart contracts for the Terra platform"
+requirements = []
+
+[contracts.creator-coin]
+path = "contracts/creator-coin.clar"
+
+[contracts.bonding-curve]
+path = "contracts/bonding-curve.clar"
+
+[contracts.nft-assets]
+path = "contracts/nft-assets.clar"
+
+[contracts.reputation-graph]
+path = "contracts/reputation-graph.clar"
+
+[contracts.community]
+path = "contracts/community.clar"
+
+[repl]
+costs_version = 2
+parser_version = 2

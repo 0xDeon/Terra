@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Terra",
+    "slug": "terra-dapp",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "terra",
+    "platforms": ["ios", "android"]
+  }
+}
