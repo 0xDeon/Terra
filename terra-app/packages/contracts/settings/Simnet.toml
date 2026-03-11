@@ -2,9 +2,10 @@
 name = "simnet"
 
 [accounts.deployer]
-mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+mnemonic = "twice particular frog crash then fan stay detect vehicle paper point dose sleep point baby order text invest vendor column purpose above blanket illness"
 balance = 100_000_000_000_000
 
 [accounts.wallet_1]
-mnemonic = "zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo wrong"
+mnemonic = "sell invite acquire kitten bamboo drastic jelly vivid peace spawn twice guilt pave pen trash pretty park cube fragile unaware remain boss depart harsh"
 balance = 100_000_000_000_000
+
