@@ -26,8 +26,10 @@ jobs:
 
       - name: Install Clarinet
         working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          CLARINET_URL=$(curl -s https://api.github.com/repos/hirosystems/clarinet/releases/latest | jq -r '.assets[] | select(.name | test("linux-x64-glibc")) | .browser_download_url')
+          CLARINET_URL=$(gh api repos/hirosystems/clarinet/releases/latest --jq '.assets[] | select(.name | test("linux-x64-glibc")) | .browser_download_url')
           echo "Downloading: $CLARINET_URL"
           wget -q "$CLARINET_URL" -O clarinet.tar.gz
           tar -xzf clarinet.tar.gz
@@ -47,8 +49,11 @@ jobs:
 
       - name: Install Clarinet
         working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          CLARINET_URL=$(curl -s https://api.github.com/repos/hirosystems/clarinet/releases/latest | jq -r '.assets[] | select(.name | test("linux-x64-glibc")) | .browser_download_url')
+          CLARINET_URL=$(gh api repos/hirosystems/clarinet/releases/latest --jq '.assets[] | select(.name | test("linux-x64-glibc")) | .browser_download_url')
+          echo "Downloading: $CLARINET_URL"
           wget -q "$CLARINET_URL" -O clarinet.tar.gz
           tar -xzf clarinet.tar.gz
           sudo mv clarinet /usr/local/bin/
