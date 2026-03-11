@@ -1,0 +1,45 @@
+name: CI — terra-app/contracts
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - "terra-app/packages/contracts/**"
+      - ".github/workflows/ci-contracts.yml"
+  pull_request:
+    branches: [main, dev]
+    paths:
+      - "terra-app/packages/contracts/**"
+      - ".github/workflows/ci-contracts.yml"
+
+defaults:
+  run:
+    working-directory: terra-app/packages/contracts
+
+jobs:
+  check:
+    name: Clarinet Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Clarinet
+        uses: hirosystems/clarinet-actions/setup@v1
+
+      - name: Check contracts
+        run: clarinet check
+
+  test:
+    name: Clarinet Test
+    runs-on: ubuntu-latest
+    needs: check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Clarinet
+        uses: hirosystems/clarinet-actions/setup@v1
+
+      - name: Run contract tests
+        run: clarinet test
