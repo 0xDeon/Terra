@@ -25,9 +25,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Clarinet
+        working-directory: .
         run: |
-          curl -L https://github.com/hirosystems/clarinet/releases/latest/download/clarinet-linux-x64.tar.gz -o clarinet.tar.gz
-          tar -xzf clarinet.tar.gz
+          wget -q $(curl -s https://api.github.com/repos/hirosystems/clarinet/releases/latest | grep -o 'https://.*clarinet-linux-x64-glibc.tar.gz')
+          tar -xzf clarinet-linux-x64-glibc.tar.gz
           sudo mv clarinet /usr/local/bin/
           clarinet --version
 
@@ -43,9 +44,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Clarinet
+        working-directory: .
         run: |
-          curl -L https://github.com/hirosystems/clarinet/releases/latest/download/clarinet-linux-x64.tar.gz -o clarinet.tar.gz
-          tar -xzf clarinet.tar.gz
+          wget -q $(curl -s https://api.github.com/repos/hirosystems/clarinet/releases/latest | grep -o 'https://.*clarinet-linux-x64-glibc.tar.gz')
+          tar -xzf clarinet-linux-x64-glibc.tar.gz
           sudo mv clarinet /usr/local/bin/
           clarinet --version
 
