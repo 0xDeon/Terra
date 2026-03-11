@@ -1,0 +1,10 @@
+{
+  "name": "@terra/config",
+  "version": "0.1.0",
+  "private": true,
+  "files": [
+    "tsconfig.json",
+    ".eslintrc.js",
+    ".prettierrc.js"
+  ]
+}

@@ -1,0 +1,11 @@
+[network]
+name = "simnet"
+
+[accounts.deployer]
+mnemonic = "twice particular frog crash then fan stay detect vehicle paper point dose sleep point baby order text invest vendor column purpose above blanket illness"
+balance = 100_000_000_000_000
+
+[accounts.wallet_1]
+mnemonic = "sell invite acquire kitten bamboo drastic jelly vivid peace spawn twice guilt pave pen trash pretty park cube fragile unaware remain boss depart harsh"
+balance = 100_000_000_000_000
+
