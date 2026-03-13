@@ -124,14 +124,14 @@ const SDKScene = () => {
       </div>
 
       {/* Activity bar (icons strip) */}
-      <div className="w-10 flex-shrink-0 flex flex-col items-center pt-3 gap-4" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }}>
+      <div className="hidden sm:flex w-10 flex-shrink-0 flex-col items-center pt-3 gap-4" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }}>
         {['⬡', '⊞', '⌕', '⚙'].map((ic, i) => (
           <div key={i} className={`text-[14px] ${i === 0 ? 'opacity-80' : 'opacity-20'}`} style={{ color: TN.text }}>{ic}</div>
         ))}
       </div>
 
       {/* Sidebar — file tree */}
-      <div className="w-36 flex-shrink-0 pt-3 px-2" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }}>
+      <div className="hidden sm:block w-36 flex-shrink-0 pt-3 px-2" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }}>
         <div className="text-[8px] uppercase tracking-widest px-2 mb-2" style={{ color: TN.ghost }}>Explorer</div>
         {FILES.map((f, i) => (
           <div key={i} className="px-2 py-[3px] rounded text-[10px] cursor-pointer"
@@ -250,10 +250,10 @@ const MiniAppsScene = () => {
   return (
     <div className="h-full w-full flex overflow-hidden" style={{ background: TN.bg }}>
       {/* Sidebar */}
-      <div className="w-10 flex-shrink-0" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }} />
+      <div className="hidden sm:block w-10 flex-shrink-0" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }} />
 
       {/* App grid */}
-      <div className="flex-1 p-4 grid grid-cols-3 grid-rows-2 gap-2.5 overflow-hidden">
+      <div className="flex-1 p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 grid-rows-3 sm:grid-rows-2 gap-2 sm:gap-2.5 overflow-hidden">
         {APPS.map((app, i) => {
           const isActive = activeApp === i;
           return (
@@ -288,7 +288,7 @@ const MiniAppsScene = () => {
       </div>
 
       {/* Right panel */}
-      <div className="w-48 flex flex-col gap-3 py-3 pr-3" style={{ borderLeft: `1px solid ${TN.line}` }}>
+      <div className="hidden md:flex w-48 flex-col gap-3 py-3 pr-3" style={{ borderLeft: `1px solid ${TN.line}` }}>
         {/* Wallet */}
         <div className="rounded-xl border overflow-hidden" style={{ background: TN.sidebar, borderColor: TN.line }}>
           <div className="px-3 pt-3 pb-2">
@@ -385,10 +385,10 @@ const SpeedScene = () => {
   return (
     <div className="h-full w-full flex overflow-hidden" style={{ background: TN.bg }}>
       {/* Activity bar */}
-      <div className="w-10 flex-shrink-0" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }} />
+      <div className="hidden sm:block w-10 flex-shrink-0" style={{ background: TN.sidebar, borderRight: `1px solid ${TN.line}` }} />
 
       {/* Main */}
-      <div className="flex-1 flex flex-col justify-center px-6 gap-5 overflow-hidden pb-5">
+      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 gap-4 sm:gap-5 overflow-hidden pb-5">
 
         {/* TX counter */}
         <div>
@@ -462,7 +462,7 @@ const SpeedScene = () => {
       </div>
 
       {/* Right panel */}
-      <div className="w-52 flex flex-col justify-center gap-4 pr-4 py-4" style={{ borderLeft: `1px solid ${TN.line}` }}>
+      <div className="hidden md:flex w-52 flex-col justify-center gap-4 pr-4 py-4" style={{ borderLeft: `1px solid ${TN.line}` }}>
         <div className="text-[8px] uppercase tracking-widest" style={{ color: TN.ghost }}>Speed Comparison</div>
         {CHAINS.map((chain, i) => (
           <div key={i} className="space-y-1">
@@ -554,17 +554,17 @@ export const DeveloperSection = () => {
 
   return (
     <section className="relative font-sans" style={{ background: '#F3F4F4' }}>
-      <div className="lg:grid lg:grid-cols-12 lg:gap-8 px-8 md:px-14 lg:px-20 max-w-[1600px] mx-auto">
+      <div className="lg:grid lg:grid-cols-12 lg:gap-8 px-4 md:px-14 lg:px-20 max-w-[1600px] mx-auto">
 
         {/* Left: sticky text */}
-        <div className="lg:col-span-4 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center mb-20 lg:mb-0 py-20 lg:py-0">
+        <div className="lg:col-span-4 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center mb-16 md:mb-20 lg:mb-0 py-16 md:py-20 lg:py-0">
           <div className="max-w-md">
             <div key={f.id} className="space-y-8">
               <div className="space-y-4">
                 <span className="text-[11px] font-bold uppercase tracking-[0.6em] text-neutral-400 block">
                   {f.subtitle}
                 </span>
-                <h2 className="text-6xl md:text-7xl font-light text-neutral-900 tracking-tight leading-[0.92]">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-neutral-900 tracking-tight leading-[0.92]">
                   {f.title.split('.')[0]}
                   <span style={{ background: G, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>.</span>
                 </h2>
@@ -600,11 +600,11 @@ export const DeveloperSection = () => {
         {/* Right: naturally scrolling IDE panels — each centered in viewport */}
         <div className="lg:col-span-8">
           {FEATURES.map((feat, i) => (
-            <div key={feat.id} className="min-h-screen flex items-center">
+            <div key={feat.id} className="min-h-[70vh] lg:min-h-screen flex items-center py-6 lg:py-0">
               <motion.div
                 onViewportEnter={() => setActiveIndex(i)}
                 viewport={{ once: false, amount: 0.5 }}
-                style={{ height: `${IDE_VH}vh`, width: '100%' }}
+                className="h-[40vh] md:h-[50vh] lg:h-[58vh] w-full"
               >
                 <MacFrame title={feat.macTitle}>
                   {feat.visual}

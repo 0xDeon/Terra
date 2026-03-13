@@ -10,13 +10,13 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="pb-12 pt-6 font-sans">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-[#111] rounded-[48px] p-12 md:p-20 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-[#111] rounded-[32px] md:rounded-[48px] p-8 md:p-12 lg:p-20 overflow-hidden relative">
           {/* Subtle glow */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6025f5]/10 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
-          
+
           <div className="relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-16 mb-20">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-16 mb-12 md:mb-20">
               <div className="col-span-2 md:col-span-1">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
@@ -48,11 +48,11 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-white/5 gap-8">
               <div className="flex items-center gap-6">
                 <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.2em] font-display">
-                    &copy; {new Date().getFullYear()} Terra Labs. <span className="text-[#6025f5] italic font-alpina">Secured by Bitcoin.</span>
+                  &copy; {new Date().getFullYear()} Terra Labs. <span className="text-[#6025f5] italic font-alpina">Secured by Bitcoin.</span>
                 </p>
                 <div className="flex items-center gap-2 px-3 py-1 bg-green-500/5 border border-green-500/20 rounded-full">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-[9px] font-black text-green-500 uppercase tracking-widest">Mainnet Live</span>
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-[9px] font-black text-green-500 uppercase tracking-widest">Mainnet Live</span>
                 </div>
               </div>
               <div className="flex items-center gap-8 mt-8 md:mt-0">

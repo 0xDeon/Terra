@@ -49,9 +49,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-[5rem] font-sans font-light tracking-tight leading-[0.85] mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem] font-sans font-light tracking-tight leading-[0.85] mb-6"
         >
-          Open Social <br /><span className="inline-block -mt-2 italic font-medium gradient-text text-[7rem]" style={{ fontFamily: "var(--font-cormorant, serif)" }}>Infrastructure</span> <span className="block lg:inline text-center">for <span className="relative inline-block">Stacks<img src="/stacks.png" alt="Stacks" className="absolute -top-4 -right-12 w-12 h-12 object-contain" /></span></span>
+          Open Social <br /><span className="inline-block -mt-2 italic font-medium gradient-text text-4xl sm:text-5xl md:text-6xl lg:text-[7rem]" style={{ fontFamily: "var(--font-cormorant, serif)" }}>Infrastructure</span> <span className="block lg:inline text-center">for <span className="relative inline-block">Stacks<img src="/stacks.png" alt="Stacks" className="absolute -top-4 -right-8 md:-right-12 w-8 h-8 md:w-12 md:h-12 object-contain" /></span></span>
         </motion.h1>
 
         {/* Subheading */}
@@ -59,7 +59,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base md:text-lg text-ink-lighter max-w-2xl mx-auto mb-8 leading-relaxed"
+          className="text-sm sm:text-base md:text-lg text-ink-lighter max-w-2xl mx-auto mb-8 leading-relaxed px-4 sm:px-0"
         >
           Terra is the sovereign social layer for creators, secured by Bitcoin and powered by Stacks.
           Empowering social apps with ZK-privacy and full content ownership.
@@ -70,11 +70,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-10"
+          className="mb-8 md:mb-10"
         >
           <a
             href="#"
-            className="bg-ink text-white text-base font-bold px-10 py-4 rounded-2xl hover:bg-black transition-all flex items-center gap-3 shadow-lg hover:scale-105 active:scale-95"
+            className="bg-ink text-white text-sm md:text-base font-bold px-8 md:px-10 py-3 md:py-4 rounded-2xl hover:bg-black transition-all flex items-center gap-3 shadow-lg hover:scale-105 active:scale-95"
           >
             Join the waitlist
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

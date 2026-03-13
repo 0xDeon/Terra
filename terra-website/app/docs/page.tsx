@@ -435,11 +435,13 @@ function ParamTable({ rows }: { rows: ParamRow[] }) {
     <div
       style={{
         borderRadius: 12,
-        overflow: 'hidden',
         border: '1px solid rgba(0,0,0,0.07)',
         marginBottom: 24,
+        overflowX: 'auto',
+        WebkitOverflowScrolling: 'touch',
       }}
     >
+      <div style={{ minWidth: 600 }}>
       {/* header */}
       <div
         style={{
@@ -522,6 +524,7 @@ function ParamTable({ rows }: { rows: ParamRow[] }) {
           </span>
         </div>
       ))}
+      </div>
     </div>
   )
 }
@@ -545,6 +548,7 @@ function Divider() {
 export default function DocsPage() {
   const [activeSection, setActiveSection] = useState('introduction')
   const [searchFocused, setSearchFocused] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
 
   // Highlight sidebar item on scroll
@@ -605,8 +609,34 @@ export default function DocsPage() {
           gap: 0,
         }}
       >
+        {/* Mobile menu toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden"
+          style={{
+            width: 56,
+            height: 56,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: 'none',
+            background: 'transparent',
+            cursor: 'pointer',
+            borderRight: '1px solid rgba(0,0,0,0.06)',
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {mobileMenuOpen ? (
+              <path d="M18 6L6 18M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
         {/* Logo area — same width as sidebar */}
         <div
+          className="hidden md:flex"
           style={{
             width: 260,
             flexShrink: 0,
@@ -681,6 +711,7 @@ export default function DocsPage() {
               maxWidth: 340,
               width: '100%',
             }}
+            className="hidden sm:block"
           >
             <div
               style={{
@@ -787,13 +818,17 @@ export default function DocsPage() {
             flexShrink: 0,
             background: '#FAFAFA',
             borderRight: '1px solid rgba(0,0,0,0.06)',
-            position: 'sticky',
+            position: 'fixed',
             top: 56,
+            left: mobileMenuOpen ? 0 : -260,
             height: 'calc(100vh - 56px)',
+            zIndex: 100,
             overflowY: 'auto',
             paddingTop: 24,
             paddingBottom: 40,
+            transition: 'left 0.3s ease',
           }}
+          className="md:relative md:left-0 md:bg-transparent"
         >
           {NAV.map((group) => (
             <div key={group.id} style={{ marginBottom: 28, paddingLeft: 20, paddingRight: 12 }}>
@@ -860,12 +895,28 @@ export default function DocsPage() {
           ref={contentRef}
           style={{
             flex: 1,
-            maxWidth: 820,
+            width: '100%',
+            maxWidth: 1200, // Increased for better view on larger screens while responsive handles smaller
             margin: '0 auto',
-            padding: '56px 48px 120px',
+            padding: '40px 24px 120px',
             boxSizing: 'border-box',
           }}
+          className="md:px-12"
         >
+          {/* Overlay for mobile menu */}
+          {mobileMenuOpen && (
+            <div
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 90,
+                background: 'rgba(0,0,0,0.2)',
+                backdropFilter: 'blur(4px)',
+              }}
+              className="md:hidden"
+            />
+          )}
           {/* ─── Hero / Introduction ─────────────────────────────────────── */}
           <motion.div
             id="introduction"
@@ -877,7 +928,6 @@ export default function DocsPage() {
             <SectionLabel>Getting Started</SectionLabel>
             <h1
               style={{
-                fontSize: 46,
                 fontWeight: 800,
                 color: '#1a1a1a',
                 letterSpacing: '-0.03em',
@@ -885,6 +935,7 @@ export default function DocsPage() {
                 marginBottom: 12,
                 fontFamily: 'var(--font-inter), Inter, sans-serif',
               }}
+              className="text-3xl md:text-5xl lg:text-6xl"
             >
               Terra Developer Docs
               <span
@@ -913,7 +964,10 @@ export default function DocsPage() {
             </p>
 
             {/* Quick nav cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            <div 
+              style={{ gap: 16 }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
               {[
                 {
                   title: 'Quick Start',
@@ -2012,14 +2066,15 @@ export default function DocsPage() {
             <div
               style={{
                 borderRadius: 12,
-                overflow: 'hidden',
                 border: '1px solid rgba(0,0,0,0.07)',
                 marginBottom: 24,
+                overflowX: 'auto', // Enable horizontal scroll for table on mobile
+                WebkitOverflowScrolling: 'touch',
               }}
             >
-              {/* Table header */}
               <div
                 style={{
+                  minWidth: 600, // Ensure content doesn't squash too much
                   display: 'grid',
                   gridTemplateColumns: '80px 220px 1fr',
                   background: '#F3F4F4',
@@ -2141,11 +2196,13 @@ export default function DocsPage() {
             <div
               style={{
                 borderRadius: 12,
-                overflow: 'hidden',
                 border: '1px solid rgba(0,0,0,0.07)',
                 marginBottom: 24,
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
               }}
             >
+              <div style={{ minWidth: 500 }}>
               <div
                 style={{
                   background: '#F3F4F4',
@@ -2208,6 +2265,7 @@ export default function DocsPage() {
                   </span>
                 </div>
               ))}
+              </div>
             </div>
           </motion.div>
 

@@ -43,7 +43,7 @@ export function CookieConsent() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 16, scale: 0.96 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 right-6 z-50 w-[340px]"
+          className="fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-auto sm:right-6 z-50 sm:w-[340px]"
         >
           <div className="rounded-[20px] overflow-hidden bg-white border border-black/[0.07] shadow-[0_8px_40px_rgba(0,0,0,0.1)]">
 
@@ -60,24 +60,24 @@ export function CookieConsent() {
                     <defs>
                       <clipPath id="cookie-bite">
                         {/* Full rect minus the Stacks circle bite */}
-                        <path fillRule="evenodd" d="M0 0H40V40H0V0ZM29 11m-10.5 0a10.5 10.5 0 1 0 21 0a10.5 10.5 0 1 0 -21 0"/>
+                        <path fillRule="evenodd" d="M0 0H40V40H0V0ZM29 11m-10.5 0a10.5 10.5 0 1 0 21 0a10.5 10.5 0 1 0 -21 0" />
                       </clipPath>
                     </defs>
-                    <circle cx="17" cy="24" r="14" fill="#D4913D" clipPath="url(#cookie-bite)"/>
+                    <circle cx="17" cy="24" r="14" fill="#D4913D" clipPath="url(#cookie-bite)" />
                     {/* Cookie edge */}
-                    <circle cx="17" cy="24" r="14" fill="none" stroke="#B8752A" strokeWidth="0.75" clipPath="url(#cookie-bite)"/>
+                    <circle cx="17" cy="24" r="14" fill="none" stroke="#B8752A" strokeWidth="0.75" clipPath="url(#cookie-bite)" />
                     {/* Chocolate chips */}
-                    <circle cx="12" cy="21" r="2" fill="#7A4210" clipPath="url(#cookie-bite)"/>
-                    <circle cx="19" cy="29" r="2" fill="#7A4210" clipPath="url(#cookie-bite)"/>
-                    <circle cx="10" cy="30" r="1.6" fill="#7A4210" clipPath="url(#cookie-bite)"/>
-                    <circle cx="20" cy="19" r="1.6" fill="#7A4210" clipPath="url(#cookie-bite)"/>
-                    <circle cx="14" cy="33" r="1.4" fill="#7A4210" clipPath="url(#cookie-bite)"/>
+                    <circle cx="12" cy="21" r="2" fill="#7A4210" clipPath="url(#cookie-bite)" />
+                    <circle cx="19" cy="29" r="2" fill="#7A4210" clipPath="url(#cookie-bite)" />
+                    <circle cx="10" cy="30" r="1.6" fill="#7A4210" clipPath="url(#cookie-bite)" />
+                    <circle cx="20" cy="19" r="1.6" fill="#7A4210" clipPath="url(#cookie-bite)" />
+                    <circle cx="14" cy="33" r="1.4" fill="#7A4210" clipPath="url(#cookie-bite)" />
                     {/* Stacks logo — eclipse overlay */}
-                    <circle cx="29" cy="11" r="10.5" fill="#FC6432"/>
+                    <circle cx="29" cy="11" r="10.5" fill="#FC6432" />
                     {/* Stacks "S" — 3 horizontal bars */}
-                    <rect x="24" y="7.5"  width="10" height="2.2" rx="1.1" fill="white"/>
-                    <rect x="26" y="11.4" width="6.5" height="2.2" rx="1.1" fill="white"/>
-                    <rect x="24" y="15.3" width="10" height="2.2" rx="1.1" fill="white"/>
+                    <rect x="24" y="7.5" width="10" height="2.2" rx="1.1" fill="white" />
+                    <rect x="26" y="11.4" width="6.5" height="2.2" rx="1.1" fill="white" />
+                    <rect x="24" y="15.3" width="10" height="2.2" rx="1.1" fill="white" />
                   </svg>
                   <span className="text-[13px] font-bold text-neutral-900 tracking-tight">Cookie Preferences</span>
                 </div>

@@ -98,7 +98,7 @@ function BondingCurveScene({ playing }: SceneProps) {
   ];
 
   return (
-    <div className="relative w-full select-none" style={{ height: 320 }}>
+    <div className="relative w-full select-none" style={{ minHeight: 220 }}>
       <Cursor x={cPos.x} y={cPos.y} clicking={false} />
 
       {/* Live price ticker */}
@@ -128,7 +128,7 @@ function BondingCurveScene({ playing }: SceneProps) {
         </AnimatePresence>
       </motion.div>
 
-      <svg viewBox="0 0 300 210" className="w-full" style={{ height: 260 }}>
+      <svg viewBox="0 0 300 210" className="w-full" style={{ height: 'auto', maxHeight: 260 }}>
         <defs>
           <linearGradient id="curveG" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#6025f5" />
@@ -315,7 +315,7 @@ function AIAgentScene({ playing }: SceneProps) {
   }, [playing]);
 
   return (
-    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 300 }}>
+    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 'clamp(220px, 35vw, 300px)' }}>
       {/* Agent header card */}
       <div style={{
         display: "flex", alignItems: "center", gap: "10px",
@@ -659,7 +659,7 @@ function WalletScene({ playing }: SceneProps) {
   ];
 
   return (
-    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 300 }}>
+    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 'clamp(220px, 35vw, 300px)' }}>
       {/* Card */}
       <motion.div
         initial={{ rotateY: -22, rotateX: 12, scale: 0.84, opacity: 0 }}
@@ -801,7 +801,7 @@ function MiniAppsScene({ playing }: SceneProps) {
   }, [playing]);
 
   return (
-    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 300 }}>
+    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 'clamp(220px, 35vw, 300px)' }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
         {APPS.map((app, i) => (
           <motion.div key={i}
@@ -933,7 +933,7 @@ function BitcoinScene({ playing }: SceneProps) {
   ];
 
   return (
-    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 300 }}>
+    <div className="w-full select-none flex flex-col gap-3" style={{ minHeight: 'clamp(220px, 35vw, 300px)' }}>
       {/* Stack — bottom to top visually = bottom rendered first */}
       <div style={{ display: "flex", flexDirection: "column-reverse", gap: "8px" }}>
         {layers.map(l => (
@@ -1112,19 +1112,15 @@ export default function TerraShowcase() {
   const stage = STAGES[active];
 
   return (
-    <section ref={sectionRef} style={{
-      width: "100%", padding: "96px 0 120px",
-      background: "#F3F4F4", overflow: "hidden",
-      fontFamily: "var(--font-inter), system-ui, sans-serif",
-    }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 48px" }}>
+    <section ref={sectionRef} className="w-full py-12 md:py-24 bg-[#F3F4F4] overflow-hidden font-[family-name:var(--font-inter)]">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-12">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-          style={{ marginBottom: 56 }}
+          style={{ marginBottom: 32 }}
         >
           <div style={{
             display: "inline-flex", alignItems: "center", gap: 8,
@@ -1161,7 +1157,7 @@ export default function TerraShowcase() {
           }}
         >
           {/* Chrome bar */}
-          <div style={{
+          <div className="flex-shrink-0 h-9 flex items-center px-3 md:px-6 gap-2 md:gap-3 relative" style={{
             display: "flex", alignItems: "center", gap: 12,
             padding: "12px 22px", borderBottom: "1px solid rgba(0,0,0,0.06)",
           }}>
@@ -1194,15 +1190,9 @@ export default function TerraShowcase() {
           </div>
 
           {/* Body */}
-          <div style={{ display: "flex", minHeight: 500 }}>
+          <div className="flex flex-col md:flex-row" style={{ minHeight: 'clamp(380px, 50vh, 500px)' }}>
             {/* Left */}
-            <div style={{
-              width: "40%", flexShrink: 0,
-              padding: "52px 44px",
-              borderRight: "1px solid rgba(0,0,0,0.06)",
-              display: "flex", flexDirection: "column", justifyContent: "center",
-              position: "relative", overflow: "hidden",
-            }}>
+            <div className="w-full md:w-[40%] md:flex-shrink-0 p-6 md:p-11 border-b md:border-b-0 md:border-r border-black/[0.06] flex flex-col justify-center relative overflow-hidden">
               <div style={{
                 position: "absolute", left: "-60px", top: "-40px",
                 width: 220, height: 220,
@@ -1250,16 +1240,12 @@ export default function TerraShowcase() {
             </div>
 
             {/* Right scene */}
-            <div style={{
-              flex: 1, padding: "36px 36px",
-              display: "flex", alignItems: "flex-start", justifyContent: "center",
-              position: "relative", overflow: "hidden",
-            }}>
+            <div className="w-full md:flex-1 flex items-start justify-center relative overflow-hidden p-4 md:p-9">
               <div style={{
                 position: "absolute", inset: 0, pointerEvents: "none",
                 background: "radial-gradient(55% 55% at 50% 50%, rgba(255,255,255,0.6), transparent)",
               }} />
-              <div style={{ position: "relative", width: "100%", maxWidth: 400 }}>
+              <div className="relative w-full max-w-[300px] md:max-w-[400px]">
                 <AnimatePresence mode="wait">
                   <motion.div key={active}
                     initial={{ opacity: 0, y: 14, scale: 0.97 }}
