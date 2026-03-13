@@ -554,17 +554,57 @@ export const DeveloperSection = () => {
 
   return (
     <section className="relative font-sans" style={{ background: '#F3F4F4' }}>
-      <div className="lg:grid lg:grid-cols-12 lg:gap-8 px-4 md:px-14 lg:px-20 max-w-[1600px] mx-auto">
+
+      {/* ── Mobile / Tablet: stacked cards (IDE + text below each) ── */}
+      <div className="lg:hidden px-4 md:px-14 max-w-[1600px] mx-auto py-16 md:py-20 space-y-12 md:space-y-16">
+        {FEATURES.map((feat, i) => (
+          <div key={feat.id} className="space-y-6">
+            {/* IDE */}
+            <div className="h-[45vh] md:h-[50vh] w-full">
+              <MacFrame title={feat.macTitle}>
+                {feat.visual}
+              </MacFrame>
+            </div>
+            {/* Text below */}
+            <div className="space-y-4">
+              <span className="text-[11px] font-bold uppercase tracking-[0.6em] text-neutral-400 block">
+                {feat.subtitle}
+              </span>
+              <h3 className="text-3xl md:text-4xl font-light text-neutral-900 tracking-tight leading-[0.92]">
+                {feat.title.split('.')[0]}
+                <span style={{ background: G, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>.</span>
+              </h3>
+              <p className="text-neutral-500 text-base leading-relaxed font-light">
+                {feat.description}
+              </p>
+            </div>
+          </div>
+        ))}
+        {/* CTA after all cards */}
+        <div className="flex items-center gap-6 pt-4">
+          <button className="group relative bg-neutral-900 text-white px-7 py-3.5 rounded-2xl text-[12px] font-black uppercase tracking-[0.2em] overflow-hidden hover:scale-105 active:scale-95 transition-all">
+            <span className="relative z-10">Start Building</span>
+            <div className="absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" style={{ background: G }} />
+          </button>
+          <div className="flex flex-col">
+            <span className="text-neutral-900 text-[13px] font-bold">4.2k Builders</span>
+            <span className="text-neutral-400 text-[10px] uppercase font-bold tracking-widest">Integrating now</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Desktop: sticky left text + scrolling right IDEs ── */}
+      <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 lg:px-20 max-w-[1600px] mx-auto">
 
         {/* Left: sticky text */}
-        <div className="lg:col-span-4 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center mb-16 md:mb-20 lg:mb-0 py-16 md:py-20 lg:py-0">
+        <div className="lg:col-span-4 lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-center">
           <div className="max-w-md">
             <div key={f.id} className="space-y-8">
               <div className="space-y-4">
                 <span className="text-[11px] font-bold uppercase tracking-[0.6em] text-neutral-400 block">
                   {f.subtitle}
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-neutral-900 tracking-tight leading-[0.92]">
+                <h2 className="text-6xl xl:text-7xl font-light text-neutral-900 tracking-tight leading-[0.92]">
                   {f.title.split('.')[0]}
                   <span style={{ background: G, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>.</span>
                 </h2>
@@ -600,11 +640,11 @@ export const DeveloperSection = () => {
         {/* Right: naturally scrolling IDE panels — each centered in viewport */}
         <div className="lg:col-span-8">
           {FEATURES.map((feat, i) => (
-            <div key={feat.id} className="min-h-[70vh] lg:min-h-screen flex items-center py-6 lg:py-0">
+            <div key={feat.id} className="min-h-screen flex items-center">
               <motion.div
                 onViewportEnter={() => setActiveIndex(i)}
                 viewport={{ once: false, amount: 0.5 }}
-                className="h-[40vh] md:h-[50vh] lg:h-[58vh] w-full"
+                className="h-[58vh] w-full"
               >
                 <MacFrame title={feat.macTitle}>
                   {feat.visual}
