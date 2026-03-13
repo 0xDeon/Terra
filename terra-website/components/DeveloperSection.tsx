@@ -559,13 +559,7 @@ export const DeveloperSection = () => {
       <div className="lg:hidden px-4 md:px-14 max-w-[1600px] mx-auto py-16 md:py-20 space-y-12 md:space-y-16">
         {FEATURES.map((feat, i) => (
           <div key={feat.id} className="space-y-6">
-            {/* IDE */}
-            <div className="h-[45vh] md:h-[50vh] w-full">
-              <MacFrame title={feat.macTitle}>
-                {feat.visual}
-              </MacFrame>
-            </div>
-            {/* Text below */}
+            {/* Text first */}
             <div className="space-y-4">
               <span className="text-[11px] font-bold uppercase tracking-[0.6em] text-neutral-400 block">
                 {feat.subtitle}
@@ -577,6 +571,12 @@ export const DeveloperSection = () => {
               <p className="text-neutral-500 text-base leading-relaxed font-light">
                 {feat.description}
               </p>
+            </div>
+            {/* IDE below */}
+            <div className="h-[45vh] md:h-[50vh] w-full">
+              <MacFrame title={feat.macTitle}>
+                {feat.visual}
+              </MacFrame>
             </div>
           </div>
         ))}
