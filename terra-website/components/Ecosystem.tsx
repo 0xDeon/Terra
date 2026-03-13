@@ -16,7 +16,7 @@ const stats = [
 
 export function Ecosystem() {
   return (
-    <section id="ecosystem" className="py-40 section-padding font-sans">
+    <section id="ecosystem" className="py-16 md:py-24 lg:py-40 section-padding font-sans">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -28,7 +28,7 @@ export function Ecosystem() {
           <span className="text-ink-lighter text-[15px] font-bold tracking-widest uppercase mb-4 block font-display">
             Ecosystem
           </span>
-          <h2 className="text-5xl md:text-7xl font-black text-ink mb-10 font-display">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-ink mb-8 md:mb-10 font-display">
             Deeply rooted in <br />
             <span className="gradient-text italic">the Bitcoin soil.</span>
           </h2>
@@ -38,7 +38,7 @@ export function Ecosystem() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-32">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -46,7 +46,7 @@ export function Ecosystem() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              className="bg-surface-50 rounded-[2.5rem] p-12 text-center border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500"
+              className="bg-surface-50 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 text-center border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500"
             >
               <div className="text-5xl md:text-6xl font-black gradient-text mb-4 tracking-tighter font-display">
                 {stat.value}

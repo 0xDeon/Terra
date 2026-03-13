@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Cormorant } from "next/font/google";
 import { SmoothScroll } from "../components/SmoothScroll";
 import { CookieConsent } from "../components/CookieConsent";
@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   title: "Terra - The Social Layer for Bitcoin",
   description:
     "Terra is the Bitcoin-native social platform where creators launch coins, mint NFTs, and build real communities on the Stacks blockchain.",
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

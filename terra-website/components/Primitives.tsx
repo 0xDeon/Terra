@@ -38,7 +38,7 @@ const nodes = [
 
 export function Primitives() {
   return (
-    <section id="nodes" className="py-40 bg-white section-padding font-sans overflow-hidden">
+    <section id="nodes" className="py-16 md:py-24 lg:py-40 bg-white section-padding font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
           <motion.div
@@ -51,7 +51,7 @@ export function Primitives() {
             <span className="text-ink-lighter text-[15px] font-bold tracking-widest uppercase mb-4 block font-display">
               The Ecosystem
             </span>
-            <h2 className="text-5xl md:text-7xl font-black text-ink leading-[0.9] font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-ink leading-[0.9] font-display">
               Built with <br />
               <span className="gradient-text italic">Modular Nodes.</span>
             </h2>
@@ -67,7 +67,7 @@ export function Primitives() {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {nodes.map((node, i) => (
             <motion.div
               key={node.name}
@@ -76,7 +76,7 @@ export function Primitives() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
               whileHover={{ scale: 1.02 }}
-              className={`group ${node.color} rounded-[2.5rem] p-10 border border-black/5 transition-colors duration-500 shadow-sm hover:shadow-xl`}
+              className={`group ${node.color} rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 border border-black/5 transition-colors duration-500 shadow-sm hover:shadow-xl`}
             >
               <div className="space-y-6">
                 <div className={`w-12 h-12 rounded-full ${node.name === "Tokens" ? "bg-white text-ink" : "bg-ink text-white"} flex items-center justify-center shadow-sm`}>
